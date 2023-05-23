@@ -109,6 +109,9 @@ function getMessages(item) {
  * Google Space にメッセージを送信する。通常、土曜保育
  */
 function sendMsg(msgs, isSaturday) {
+  if (msgs.length === 0) {
+    return;
+  }
   const url = isSaturday ? WEBHOOK_URL_SAT : WEBHOOK_URL;
   const payload = {
     "text": msgs.join('\n\n')
